@@ -13,6 +13,7 @@ Built city-level SARIMAX models to forecast 7 days of future charging demand.
 Loaded forecast outputs into BigQuery and visualized results in Tableau.
 
 Created a clean, blue-themed dashboard with KPIs, forecasts, and behavioral insights.
+##
 
 🔍 Key Insights
 
@@ -23,6 +24,7 @@ Weather Impact: Temperature has a mild positive effect on daily charging volume,
 City Variation: LA and SF show stable activity; Chicago and NY are more sensitive to temperature shifts.
 
 Forecast Accuracy: SARIMAX captures short-term patterns well, with expanding uncertainty further out.
+##
 
 🛠 Tech Stack
 
@@ -33,6 +35,7 @@ SQL: BigQuery for data modeling + aggregated views
 Visualization: Tableau dashboard
 
 Tools: VS Code
+##
 
 🚀 Pipeline Overview
 
@@ -45,6 +48,7 @@ Run forecast_to_bq.py to produce next 7-day forecasts.
 Load forecasts back into BigQuery (forecasts_daily).
 
 Connect Tableau to BigQuery → build forecast + behavior visualizations.
+##
 
 📊 Dashboard Features
 
@@ -57,7 +61,7 @@ Calendar heatmap of charging activity
 Temperature vs. Sessions scatterplot
 
 City/date filters for interactive exploration
-
+##
 📈 What I Learned
 
 Building a Python → SQL → Tableau analytics pipeline
@@ -69,7 +73,7 @@ Modeling environmental behavior (temperature effects)
 Creating clean, user-friendly dashboards
 
 Structuring SQL data models for BI dashboards
-
+##
 🔮 Future Improvements
 
 Longer-term forecasting (Prophet / XGBoost / LSTM)
