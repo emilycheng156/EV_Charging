@@ -3,11 +3,6 @@
 EV Charging Forecasts → BigQuery
 - Reads:   ev_forecast.v_city_daily_features
 - Writes:  ev_forecast.forecasts_daily  (FLOATs for easy Arrow/BQ interop)
-Usage:
-  python forecast_to_bq.py --project YOUR_PROJECT_ID --dataset ev_forecast --horizon 7
-Auth options:
-  1) gcloud auth application-default login
-  2) export GOOGLE_APPLICATION_CREDENTIALS=/path/to/key.json
 """
 
 import os
