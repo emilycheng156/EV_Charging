@@ -1,180 +1,81 @@
-⚡ EV Charging Demand & Forecast Dashboard
+# ⚡ EV Charging Demand & Forecast Dashboard
 
-A full end-to-end analytics project combining SQL, Python forecasting, and Tableau
+A compact end-to-end analytics project analyzing EV charging behavior and generating short-term demand forecasts across five major U.S. cities. The final result is an interactive Tableau dashboard supported by BigQuery SQL models and a Python SARIMAX forecasting pipeline.
+##
+📌 Project Summary
 
-📌 Overview
+Processed 1,320 EV charging sessions across Chicago, Houston, Los Angeles, New York, and San Francisco.
 
-This project analyzes electric vehicle (EV) charging behavior across five major U.S. cities and builds a complete analytics workflow, including:
+Engineered daily features including sessions, temperature, energy consumed, and revenue.
 
-Data ingestion & cleaning
+Built city-level SARIMAX models to forecast 7 days of future charging demand.
 
-Feature engineering & aggregation
+Loaded forecast outputs into BigQuery and visualized results in Tableau.
 
-Time-series forecasting using SARIMAX
+Created a clean, blue-themed dashboard with KPIs, forecasts, and behavioral insights.
 
-BigQuery SQL modeling
+🔍 Key Insights
 
-Interactive Tableau dashboard
+Demand Patterns: Mid-week charging is more consistent; weekends show noticeable dips.
 
-Behavioral, temporal, and environmental insights
+Weather Impact: Temperature has a mild positive effect on daily charging volume, especially in colder cities.
 
-The final deliverable is a modern, blue-themed Tableau dashboard with KPIs, forecasting visualizations, and behavior analysis.
+City Variation: LA and SF show stable activity; Chicago and NY are more sensitive to temperature shifts.
 
-🎯 Goals
-
-Understand EV charging usage patterns across different cities
-
-Explore how weather (especially temperature) impacts charging demand
-
-Build a short-term demand forecasting model
-
-Create operational dashboards for real-time monitoring and planning
-
-Demonstrate a full analytics workflow suitable for real-world data roles
-
-🧠 Key Findings
-
-Total Sessions: 1,320
-
-Total Energy Delivered: 53,474 kWh
-
-Charging Revenue: $29,767.78
-
-Weekday Behavior: Stable mid-week activity with weekend drops
-
-Temperature Relationship: Slight positive correlation; colder cities show larger variability
-
-Forecasting: City-level SARIMAX model predicts 7-day demand with confidence intervals
-
-City Differences:
-
-LA & SF: stable patterns
-
-Chicago & NY: strong weather sensitivity
-
-Houston: moderate, sometimes spiky usage
+Forecast Accuracy: SARIMAX captures short-term patterns well, with expanding uncertainty further out.
 
 🛠 Tech Stack
-Layer	Tools
-Data Storage	Google BigQuery
-Modeling & Feature Engineering	Python, Pandas, Statsmodels
-Forecasting	SARIMAX
-Visualization	Tableau
-Scripting	VS Code / Jupyter
-🗂 Project Structure
-📁 ev-charging-dashboard
-│
-├── ev_charging_patterns.csv        # Raw dataset
-├── forecast_to_bq.py               # Python script: model → BQ upload
-├── EV_Dashboard.pptx               # Project slides & summary
-└── README.md                       # Documentation (this file)
 
-🔮 Forecasting Pipeline (Python → BigQuery)
+Python: Pandas, Statsmodels (SARIMAX)
 
-The script forecast_to_bq.py:
+SQL: BigQuery for data modeling + aggregated views
 
-Loads cleaned daily session data from BigQuery
+Visualization: Tableau dashboard
 
-Builds a SARIMAX model per city
+Tools: VS Code
 
-Generates 7-day ahead forecasts
+🚀 Pipeline Overview
 
-Includes upper/lower prediction intervals
+Clean raw CSV session data.
 
-Uploads results back into BigQuery as forecasts_daily
+Upload to BigQuery → create daily aggregated table.
 
-This enables Tableau to pull live predictions for visualization.
+Run forecast_to_bq.py to produce next 7-day forecasts.
 
-🧩 SQL Modeling (BigQuery)
+Load forecasts back into BigQuery (forecasts_daily).
 
-The SQL layer prepares the data for analysis:
+Connect Tableau to BigQuery → build forecast + behavior visualizations.
 
-Staging Tables: raw loading
+📊 Dashboard Features
 
-Cleaned Tables: converted timestamps, standardized text
+KPI metrics (sessions, energy delivered, revenue)
 
-Daily Aggregations: sessions, energy, temperature
+Forecasted daily demand with confidence bands
 
-Forecast Views: joins actual + predicted demand
+Calendar heatmap of charging activity
 
-Dashboard Views: pre-aggregated metrics for Tableau
+Temperature vs. Sessions scatterplot
 
-This creates a robust analytics warehouse similar to modern data stacks.
+City/date filters for interactive exploration
 
-📊 Tableau Dashboard
+📈 What I Learned
 
-The dashboard includes:
+Building a Python → SQL → Tableau analytics pipeline
 
-✔ KPI Summary
+Designing short-term time-series forecasting models
 
-Total sessions
+Modeling environmental behavior (temperature effects)
 
-Total energy delivered
+Creating clean, user-friendly dashboards
 
-Revenue
+Structuring SQL data models for BI dashboards
 
-Dynamic city/date filters
+🔮 Future Improvements
 
-✔ Forecast Visualization
+Longer-term forecasting (Prophet / XGBoost / LSTM)
 
-Actual vs predicted sessions
+Geospatial map of city-level charging behavior
 
-7-day forecast window
+Charger-type utilization analysis
 
-Shaded confidence intervals
-
-✔ Behavioral Analysis
-
-Temperature vs Sessions scatterplot
-
-Calendar heatmap of daily activity
-
-Cross-city comparisons
-
-✔ Clean Modern Layout
-
-Blue theme
-
-Minimal clutter
-
-Interactive filters
-
-Clear visual storytelling
-
-💡 What I Learned
-
-Time-series forecasting using SARIMAX
-
-BigQuery SQL view modeling + feature engineering
-
-Tableau dashboard design principles
-
-Environmental behavior analysis
-
-How to combine SQL + Python + Tableau into one cohesive product
-
-Communicating data insights visually & professionally
-
-🚀 Future Enhancements
-
-Longer-range forecasting (Prophet, XGBoost, LSTM)
-
-Real-time streaming data (Pub/Sub)
-
-Geospatial map of charging stations
-
-Charger-level peak demand analysis
-
-User segmentation (clustering commuter vs traveler)
-
-Predictive maintenance using operational data
-
-📎 Project Deliverables
-
-📊 Tableau Dashboard (screenshots or link)
-
-🧮 Forecasting Script (forecast_to_bq.py)
-
-🗄 SQL Data Model (views, aggregations)
-
-🎞 Presentation: EV_Dashboard.pptx
+Real-time refresh pipeline
