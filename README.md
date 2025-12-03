@@ -1,6 +1,7 @@
 # ⚡ EV Charging Demand & Forecast Dashboard
 
 A compact end-to-end analytics project analyzing EV charging behavior and generating short-term demand forecasts across five major U.S. cities. The final result is an interactive Tableau dashboard supported by BigQuery SQL models and a Python SARIMAX forecasting pipeline.
+Data Source: https://www.kaggle.com/datasets/valakhorasani/electric-vehicle-charging-patterns?resource=download
 ##
 📌 Project Summary
 
